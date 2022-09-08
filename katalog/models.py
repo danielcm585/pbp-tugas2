@@ -7,3 +7,4 @@ class CatalogItem(models.Model):
     description = models.TextField()
     rating = models.IntegerField()
     item_url = models.URLField()
+    

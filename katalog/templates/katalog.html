@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="title-container">
+    <h1 class="title">Lab 1 Assignment PBP/PBD</h1>
+  </div>
+
+  <h4>Name: </h4>
+  <p>{{nama}}</p>
+
+  <h4>Student ID: </h4>
+  <p>{{npm}}</p>
+
+  <table class="table">
+    <tr class="table-header-row">
+      <th class="table-header-cell">Item Name</th>
+      <th class="table-header-cell">Item Price</th>
+      <th class="table-header-cell">Item Stock</th>
+      <th class="table-header-cell">Rating</th>
+      <th class="table-header-cell">Description</th>
+      <th class="table-header-cell">Item URL</th>
+    </tr>
+
+    {% comment %} Add the data below this line {% endcomment %}
+    
+    {% for katalog in list_katalog %}
+      <tr class="table-row">
+        <th class="table-cell">{{katalog.item_name}}</th>
+        <th class="table-cell">{{katalog.item_price}}</th>
+        <th class="table-cell">{{katalog.item_stock}}</th>
+        <th class="table-cell">{{katalog.desription}}</th>
+        <th class="table-cell">{{katalog.rating}}</th>
+        <th class="table-cell">
+          <a href="{{katalog.item_url}}">
+            {{katalog.item_url}}
+          </a>
+        </th>
+      </tr>
+    {% endfor %}
+
+  </table>
+
+{% endblock content %}

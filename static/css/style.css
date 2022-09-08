@@ -1,0 +1,35 @@
+body {
+  background-color: black;
+  padding: 0 1rem 1rem 1rem;
+}
+
+h4, p {
+  color: white;
+}
+
+.title-container {
+  display: inline-block;
+}
+
+.title {
+  background: linear-gradient(90deg, rgba(251,10,10,1) 0%, rgba(0,76,255,1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding-right: 0;
+}
+
+.table {
+  margin-top: 2rem;
+  background-color: black;
+}
+
+.table-cell {
+  background-color: white;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.table-header-cell {
+  background-color: greenyellow;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
