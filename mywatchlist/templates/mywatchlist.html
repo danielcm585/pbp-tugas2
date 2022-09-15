@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="title-container">
+    <h1 class="title">My Watchlist</h1>
+  </div>
+  
+  <div class="identity">
+    <h4>Name: {{name}}</h4>
+    <h4>Student ID: {{npm}}</h4>
+  </div>
+
+  <table class="table">
+    <tr class="table-header-row">
+      <th class="table-header-cell">Watched</th>
+      <th class="table-header-cell">Title</th>
+      <th class="table-header-cell">Rating</th>
+      <th class="table-header-cell">Release Date</th>
+      <th class="table-header-cell">Review</th>
+    </tr>
+    {% for movie in watchlist %}
+      <tr class="table-row">
+        <th class="table-cell">
+          <input type="checkbox" 
+            {% if movie.watched %} checked 
+            {% else %} ''
+            {% endif %}
+          />
+        </th>
+        <th class="table-cell">{{movie.title}}</th>
+        <th class="table-cell">{{movie.rating}}</th>
+        <th class="table-cell">{{movie.release_date}}</th>
+        <th class="table-cell">{{movie.review}}</th>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <div class="button-container">
+    <button class="button">
+      + Add Movie
+    </button>
+  </div>
+
+  {% if watched_many %}
+    <div class="message-box-green">
+      <h4>Selamat, kamu sudah banyak menonton!</h4>
+    </div>
+  {% else %}
+    <div class="message-box-red">
+      <h4>Wah, kamu masih sedikit menonton!</h4>
+    </div>
+  {% endif %}
+  
+{% endblock content %}

@@ -1,0 +1,112 @@
+[
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 1,
+    "fields": {
+      "watched": true,
+      "title": "Spiderman: Far From Home",
+      "rating": 5,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 2,
+    "fields": {
+      "watched": false,
+      "title": "Avengers: Endgame",
+      "rating": 5,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 3,
+    "fields": {
+      "watched": false,
+      "title": "Sonic the Hedgehog",
+      "rating": 4,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 4,
+    "fields": {
+      "watched": false,
+      "title": "Death of The Nile",
+      "rating": 5,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 5,
+    "fields": {
+      "watched": false,
+      "title": "Mencuri Raden Saleh",
+      "rating": 5,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 6,
+    "fields": {
+      "watched": false,
+      "title": "Alienoid",
+      "rating": 4,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 7,
+    "fields": {
+      "watched": false,
+      "title": "Broker",
+      "rating": 3,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 8,
+    "fields": {
+      "watched": false,
+      "title": "Sayap-Sayap Patah",
+      "rating": 4,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 9,
+    "fields": {
+      "watched": true,
+      "title": "Doctor Strange: In the Multiverse of Madness",
+      "rating": 5,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 10,
+    "fields": {
+      "watched": true,
+      "title": "Spiderman: No Way Home",
+      "rating": 5,
+      "release_date": "2022-09-15T14:24:01.579Z",
+      "review": "This is a worth to watch movie. The plot and special effect was amazing."
+    }
+  }
+]

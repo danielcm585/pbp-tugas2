@@ -1,5 +1,4 @@
 body {
-  /* background-color: black; */
   padding: 0 1rem 1rem 1rem;
 }
 
@@ -15,8 +14,12 @@ body {
   padding-right: 0;
 }
 
+.identity {
+  margin-top: 10px;
+}
+
 .table {
-  margin-top: 2rem;
+  margin-top: 40px;
   background-color: black;
 }
 
@@ -28,4 +31,35 @@ body {
 .table-header-cell {
   background-color: greenyellow;
   padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.button {
+  padding: 5px 10px;
+  background-color: greenyellow;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.message-box-green {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 2px 20px;
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: green;
+  background-color: lightgreen;
+}
+
+.message-box-red {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 2px 20px;
+  border: 2px solid;
+  border-color: red;
+  border-radius: 5px;
+  background-color: pink;
 }
