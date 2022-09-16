@@ -1,5 +1,7 @@
 # Watchlist
 
+To access the app click [here](https://pbp-tugas2-daniel.herokuapp.com/mywatchlist/html)
+
 ## Difference between JSON, XML, and HTML
 ---
 
@@ -76,9 +78,9 @@ Data delivery in platform based programming is used to communicate between clien
 
 Testing the application via Postman. The screenshots below show the result of the tests.
 
-- HTML
+- [HTML](https://pbp-tugas2-daniel.herokuapp.com/mywatchlist/html)
 ![HTML](../static/html.png?raw=true)
-- XML 
+- [XML](https://pbp-tugas2-daniel.herokuapp.com/mywatchlist/xml)
 ![XML](../static/xml.png?raw=true)
-- JSON
+- [JSON](https://pbp-tugas2-daniel.herokuapp.com/mywatchlist/json)
 ![JSON](../static/json.png?raw=true)

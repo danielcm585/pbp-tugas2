@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core import serializers
 from mywatchlist.models import MyWatchList
@@ -24,3 +24,9 @@ def show_xml(request):
 def show_json(request):
   all_data = MyWatchList.objects.all()
   return HttpResponse(serializers.serialize('json',all_data), content_type='application/json')
+
+def check_watched(request, id):
+  movie = MyWatchList.objects.get(pk=id)
+  movie.watched = not movie.watched
+  movie.save()
+  return redirect('mywatchlist:show_html')
