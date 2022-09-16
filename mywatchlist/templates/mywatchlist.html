@@ -22,7 +22,7 @@
     {% for movie in watchlist %}
       <tr class="table-row">
         <th class="table-cell">
-          <input type="checkbox" 
+          <input class="checkbox" type="checkbox"
             {% if movie.watched %} checked 
             {% else %} ''
             {% endif %}
