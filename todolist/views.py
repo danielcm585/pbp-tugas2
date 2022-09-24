@@ -23,12 +23,27 @@ def home(request):
 def create_task(request):
     return render(request, 'create_task.html')
 
-def new_task(request):
+@login_required(login_url='/todolist/login')
+def create(request):
     if (request.method == 'POST'):
+        # TODO: Get data from form
+        # TODO: Create new instance
         form = request.POST.dict()
         if (form.is_valid()):
             print("HERE")
         return HttpResponseRedirect(reverse('todolist:'))
+
+@login_required(login_url='/todolist/login')
+def mark_done(request, id):
+    task = Task.objects.filter(pk=id)
+    task.done = not task.done
+    task.save()
+    HttpResponseRedirect(reverse('todolist:'))
+
+@login_required(login_url='/todolist/login')
+def delete(request, id):
+    Task.objects.delete(pk=id)
+    HttpResponseRedirect(reverse('todolist:'))
 
 def login_user(request):
     if request.method == 'POST':

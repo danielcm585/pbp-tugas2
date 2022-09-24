@@ -14,7 +14,7 @@
     <h1 class="title">Create Task</h1>
   </div>
 
-  <form method="POST" action="{% url 'todolist:new_task' %}">
+  <form method="POST" action="{% url 'todolist:create' %}">
     {% csrf_token %}
     <table>
       <tr>
