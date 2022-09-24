@@ -11,14 +11,26 @@ from todolist.models import Task
 
 @login_required(login_url='/todolist/login')
 def home(request):
-    return render(request, 'todolist.html')
+    tasks = Task.objects.all()
+    context = {
+        'name': 'Daniel Christian Mandolang',
+        'npm': '2106630006',
+        'tasks': tasks
+    }
+    return render(request, 'todolist.html', context)
 
 @login_required(login_url='/todolist/login')
 def create_task(request):
-    return render(request, 'new_task.html')
+    return render(request, 'create_task.html')
+
+def new_task(request):
+    if (request.method == 'POST'):
+        form = request.POST.dict()
+        if (form.is_valid()):
+            print("HERE")
+        return HttpResponseRedirect(reverse('todolist:'))
 
 def login_user(request):
-    print(request)
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="title-container">
+    <h1 class="title">Todolist</h1>
+  </div>
+  
+  <div class="identity">
+    <h3>Name: {{name}}</h3>
+    <h3>Student ID: {{npm}}</h3>
+  </div>
+
+  <table class="table">
+    <tr class="table-header-row">
+      <th class="table-header-cell"></th>
+      <th class="table-header-cell"></th>
+      <th class="table-header-cell">Date</th>
+      <th class="table-header-cell">Title</th>
+      <th class="table-header-cell">Description</th>
+    </tr>
+    {% for task in tasks %}
+      <tr class="table-row">
+        <th class="table-cell">
+          {% if task.done %}
+            <form action="{% url 'todolist:check_done' id=task.pk %}">
+              <button type="submit">
+                Not done?
+              </button>
+            </form>
+            {% else %}
+            <form action="{% url 'todolist:check_done' id=task.pk %}">
+              <button type="submit">
+                Done?
+              </button>
+            </form>
+          {% endif %}
+        </th>
+        <th class="table-cell">
+          {% if task.done %}
+            <div class="svg-container">
+              <div class="svg">
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.88"><defs><style>.cls-1{fill:#00a912;}.cls-1,.cls-2{fill-rule:evenodd;}.cls-2{fill:#fff;}</style></defs><title>confirm</title><path class="cls-1" d="M61.44,0A61.44,61.44,0,1,1,0,61.44,61.44,61.44,0,0,1,61.44,0Z"/><path class="cls-2" d="M42.37,51.68,53.26,62,79,35.87c2.13-2.16,3.47-3.9,6.1-1.19l8.53,8.74c2.8,2.77,2.66,4.4,0,7L58.14,85.34c-5.58,5.46-4.61,5.79-10.26.19L28,65.77c-1.18-1.28-1.05-2.57.24-3.84l9.9-10.27c1.5-1.58,2.7-1.44,4.22,0Z"/></svg>
+              </div>
+            </div>
+            {% else %}
+            <div class="svg-container">
+              <div class="svg">
+                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.88"><defs><style>.cls-3{fill:#eb0100;}.cls-3,.cls-4{fill-rule:evenodd;}.cls-4{fill:#fff;}</style></defs><title>cancel</title><path class="cls-3" d="M61.44,0A61.44,61.44,0,1,1,0,61.44,61.44,61.44,0,0,1,61.44,0Z"/><path class="cls-4" d="M35.38,49.72c-2.16-2.13-3.9-3.47-1.19-6.1l8.74-8.53c2.77-2.8,4.39-2.66,7,0L61.68,46.86,73.39,35.15c2.14-2.17,3.47-3.91,6.1-1.2L88,42.69c2.8,2.77,2.66,4.4,0,7L76.27,61.44,88,73.21c2.65,2.58,2.79,4.21,0,7l-8.54,8.74c-2.63,2.71-4,1-6.1-1.19L61.68,76,49.9,87.81c-2.58,2.64-4.2,2.78-7,0l-8.74-8.53c-2.71-2.63-1-4,1.19-6.1L47.1,61.44,35.38,49.72Z"/></svg>
+              </div>
+            </div>
+          {% endif %}
+        </th>
+        <th class="table-cell">{{movie.date}}</th>
+        <th class="table-cell">{{movie.title}}</th>
+        <th class="table-cell">{{movie.description}}</th>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <div class="button-container">
+    <button class="button" onclick="location.href='create-task'" type="button">
+      New Task
+    </button>
+  </div>
+  
+{% endblock content %}
