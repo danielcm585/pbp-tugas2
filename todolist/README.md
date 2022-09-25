@@ -1,3 +1,11 @@
+# Todolist
+
+Untuk mengakses aplikasi klik di [sini](https://pbp-tugas2-daniel.herokuapp.com/todolist/)
+
+#### Akun dummy:
+- Username: `dummy1`, Password: `pass12345`
+- Username: `dummy2`, Password: `pass12345`
+
 ### Apa kegunaan `{% csrf_token %}` pada element `<form>`?
 - CSRF (kependekan dari Cross-Site Request Forgery) adalah suatu serangan sederhana terhadap suatu web. Untuk mencegah serangan tersebut, dikembangkanlah CSRF Token yang berfungsi sebagai validator dari suatu HTTP Request. Suatu request akan diproses jika dan hanya jika request tersebut memiliki token yang valid.
 
