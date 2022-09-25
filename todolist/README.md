@@ -8,10 +8,23 @@
 - Tags `<form>` meruapakan tags pada HTML yang dapat digunakan untuk menerima dan mengumpulkan data dari pengguna. Adapun generator seperti `{{ form.as_table }}` hanyalah fasilitas yang dimiliki Django Template Language untuk membentuk form dalam bentuk tabel. Oleh karena itu, tentu saja elemen `<form>` dapat dibuat secara manual.
 
 ### Jelaskan secara gambaran besar bagaimana cara membuat `<form>` secara manual.
-- 
+- Buat class `Form` pada `models.py` yang digenerate langsung dari model yang terkait.
+- Buat tags `<form>` pada `template.html` dengan method `POST` dan action merujuk ke suatu route, kemudian implementasikan fungsi pada `views.py` untuk men-*handle* request tersebut.
+- Letakan semua komponen input di dalam tags `<form>`.
+- Pada fungsi views, dapatkan data input yang dimasukkan ke dalam form dengan membuat instance `Form` dari `request.POST` yang diterima.
 
 ### Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
-- 
+- Data yang di-input user akan diterima dan diatur oleh tags `<form>` pada perangkat client.
+- Saat user men-*trigger* input yang bertipe `"submit"`, client akan mengirim request `POST` ke server sesuai route yang terhubung pada atribut `action` dari form tersebut.
+- Seperti biasa, request yang diterima akan di-*parse* dan di-*handle* oleh fungsi views yang bersesuaian.
+- Data yang diterima dari form dapat diakses oleh server dengan mengkonversi data tersebut menjadi sebuah instance `Form`.
+- Data tersebut kemudian digunakan untuk membuat sebuah instance baru dari suatu model yang ada, kemudian disimpan ke database.
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
-- 
+- Buat sebuah aplikasi `todolist` dengan menjalankan perintah `python3 manage.py startapp todolist`, kemudian daftarkan aplikasi tersebut pada `project-django/settings.py` dan `project_django/urls.py`.
+- Buat class `Task` pada `todolist/models.py`, kemudian buat route-route pada `todolist/urls.py` beserta dengan fungsi-fungsi yang bersesuaian pada `todolist/views.py`.
+- Buat template untuk page-page yang diperlukan pada `todolist/templates/`.
+- Kaitkan fungsi pada `todolist/views.py` dengan model `User` yang sudah disediakan Django.
+- Atur halaman `login` dan `register`, kemudian kunci halaman `/todolist/` dan `/todolist/create-task` agar hanya dapat diakses oleh user yang sudah login.
+- Tambahkan sebuah `BooleanField` pada `Task`, kemudian tambahkan 3 kolom pada `todolist/templates/todolist.html` untuk menampilkan status pengerjaan sebuah task, menandai suatu task sudah dikerjakan, dan menghapus suatu task.
+- Buat route dan fungsi yang sesuai untuk menandai dan menghapus suatu task, kemudian hubungkan dengan tombol pada template.
