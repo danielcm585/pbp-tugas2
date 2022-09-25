@@ -52,9 +52,9 @@
           </div>
           {% endif %}
         </th>
-        <th class="table-cell">{{movie.date}}</th>
-        <th class="table-cell">{{movie.title}}</th>
-        <th class="table-cell">{{movie.description}}</th>
+        <th class="table-cell">{{task.date}}</th>
+        <th class="table-cell">{{task.title}}</th>
+        <th class="table-cell">{{task.description}}</th>
         <th class="table-cell">
             <form action="{% url 'todolist:delete' id=task.pk %}">
               <button type="submit">
