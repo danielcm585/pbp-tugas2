@@ -43,14 +43,17 @@ def create(request):
 @login_required(login_url='/todolist/login')
 def mark_done(request, id):
     task = Task.objects.get(pk=id)
-    task.done = not task.done
-    task.save()
-    return HttpResponseRedirect(reverse('todolist:home'))
+    if (task.user == request.user):
+        task.done = not task.done
+        task.save()
+        return HttpResponseRedirect(reverse('todolist:home'))
 
 @login_required(login_url='/todolist/login')
 def delete(request, id):
-    Task.objects.filter(pk=id).delete()
-    return HttpResponseRedirect(reverse('todolist:home'))
+    task = Task.objects.get(pk=id)
+    if (task.user == request.user):
+        Task.objects.filter(pk=id).delete()
+        return HttpResponseRedirect(reverse('todolist:home'))
 
 def login_user(request):
     if request.method == 'POST':
