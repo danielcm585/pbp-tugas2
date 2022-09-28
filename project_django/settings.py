@@ -130,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'theme/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
@@ -155,3 +155,5 @@ INTERNAL_IPS = [
 ]
 
 NPM_BIN_PATH = "/usr/local/bin/npm"
+
+TAILWIND_CSS_PATH = 'css/dist/styles.css'

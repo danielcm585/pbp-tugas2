@@ -56,11 +56,17 @@
       {% for task in tasks %}
         <div class="mt-2 py-4 px-6 bg-gray-100 items-center justify-between rounded-md flex transition ease-in-out hover:scale-105 hover:bg-gray-200">
           <div class="flex items-center">
-            {% if task.done %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.041 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591zm-5.041-15c-1.654 0-3 1.346-3 3v14c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-14c0-1.654-1.346-3-3-3h-14zm19 3v14c0 2.761-2.238 5-5 5h-14c-2.762 0-5-2.239-5-5v-14c0-2.761 2.238-5 5-5h14c2.762 0 5 2.239 5 5z"/></svg>
-            {% else %}
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 2c-1.654 0-3 1.346-3 3v14c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-14c0-1.654-1.346-3-3-3h-14zm19 3v14c0 2.761-2.238 5-5 5h-14c-2.762 0-5-2.239-5-5v-14c0-2.761 2.238-5 5-5h14c2.762 0 5 2.239 5 5z"/></svg>
-            {% endif %}
+            <div class="transition ease-in-out hover:scale-110">
+              {% if task.done %}
+                <a href="{% url 'todolist:mark_done' id=task.pk %}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.041 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591zm-5.041-15c-1.654 0-3 1.346-3 3v14c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-14c0-1.654-1.346-3-3-3h-14zm19 3v14c0 2.761-2.238 5-5 5h-14c-2.762 0-5-2.239-5-5v-14c0-2.761 2.238-5 5-5h14c2.762 0 5 2.239 5 5z"/></svg>
+                </a>
+              {% else %}
+              <a href="{% url 'todolist:mark_done' id=task.pk %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 2c-1.654 0-3 1.346-3 3v14c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-14c0-1.654-1.346-3-3-3h-14zm19 3v14c0 2.761-2.238 5-5 5h-14c-2.762 0-5-2.239-5-5v-14c0-2.761 2.238-5 5-5h14c2.762 0 5 2.239 5 5z"/></svg>
+              </a>
+              {% endif %}
+            </div>
             <div class="ml-6">
               <h2 class="font-bold">
                 {{ task.title }}
@@ -73,30 +79,27 @@
               </p>
             </div>
           </div>
-          <div class="flex">
-            <form action="{% url 'todolist:delete' id=task.pk %}">
-              <button class="text-red-600 px-4 py-2 rounded-md bg-gray-100 transition ease-in-out hover:scale-110" type="submit">
-                Hapus
-              </button>
-            </form>
-            {% if task.done %}
-              <form action="{% url 'todolist:mark_done' id=task.pk %}">
-                <button class="ml-4 text-white px-4 py-2 rounded-md shadow-md transition ease-in-out bg-gradient-to-r from-blue-600 to-red-600 text-white hover:scale-110" type="submit">
-                  Not done?
-                </button>
-              </form>
-              {% else %}
-              <form action="{% url 'todolist:mark_done' id=task.pk %}">
-                <button class="ml-4 text-white px-4 py-2 rounded-md shadow-md transition ease-in-out bg-gradient-to-r from-blue-600 to-red-600 text-white hover:scale-110" type="submit">
-                  Done?
-                </button>
-              </form>
-            {% endif %}
-          </div>
+          <form action="{% url 'todolist:delete' id=task.pk %}">
+            <button class="text-red-600 p-2 rounded-md transition ease-in-out hover:scale-110" type="submit">
+              Delete
+            </button>
+          </form>
         </div>
       {% endfor %}
     </div>
   </div>
+  <footer class="mx-72 mt-10 p-4 shadow ">
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <div class="flex justify-center">
+      <div class="block mt-4 text-sm text-gray-500 text-center">
+        © 2022 
+        <a href="/me">
+          Daniel Christian M
+        </a>
+        . All Rights Reserved.
+      </div>
+    </div>
+  </footer>
 </div>
 
 {% endblock content %}
