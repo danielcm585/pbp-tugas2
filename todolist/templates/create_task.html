@@ -8,51 +8,90 @@
 
 {% block content %}
 
-<div class="create-task">
-
-  <div class="title-container">
-    <h1 class="title">Create Task</h1>
-  </div>
-
-  <form method="POST" action="{% url 'todolist:create' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>Title: </td>
-        <td>
-          <input type="text" name="title" placeholder="Title" class="form-control">
-        </td>
-      </tr>
-              
-      <tr>
-        <td>Description: </td>
-        <td>
-          <textarea name="description" placeholder="Description" class="form-control"></textarea>
-        </td>
-      </tr>
-
-      <tr>
-        <td>Date: </td>
-        <td>
-          <input type="date" name="date" placeholder="Date" class="form-control">
-        </td>
-      </tr>
-    </table>
-
-    <button class="submit">
-      Save
-    </button>
-  </form>
-
-
+<div class="relative">
   {% if messages %}
-    <ul>
+    <div class="absolute left-0">
       {% for message in messages %}
-        <li>{{ message }}</li>
+        {% if message.tags == 'success' %}
+          <div class="mt-4 ml-2 flex items-center rounded-md bg-green-500 border-l-4 border-green-700 py-2 px-3 shadow-md transition ease-in-out hover:scale-110">
+            <div class="text-green-500 rounded-full bg-white mr-3">
+              <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+              </svg>
+            </div>
+            <div class="text-white max-w-xs mr-2">
+              {{ message }}
+            </div>
+          </div>
+        {% else %}
+          <div class="mt-4 ml-2 flex w-70 bg-red-500 items-center rounded-md border-l-4 border-red-700 py-2 px-3 shadow-md transition ease-in-out hover:scale-110">
+            <div class="text-red-500 rounded-full bg-white mr-3">
+              <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+                <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+              </svg>
+            </div>
+            <div class="text-white max-w-xs mr-2">
+              {{ message }}
+            </div>
+          </div>
+        {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   {% endif %}
-
+  <div class="sticky top-0">
+    <div class="py-4 bg-gray-900 px-56 flex justify-between">
+      <h1 class="inline font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-blue-600 to-red-600">
+        Todolist
+      </h1>
+      <div class="flex">
+        <button class="bg-red-600 text-white px-4 py-2 rounded-md shadow-md transition ease-in-out bg-gradient-to-r from-blue-600 to-red-600 text-white hover:scale-110" onclick="location.href='/todolist/create-task'" type="button">
+          New Task
+        </button>
+        <button class="ml-4 text-red-600 px-4 py-2 rounded-md transition ease-in-out hover:scale-110 border-red-600 border-2" onclick="location.href='/todolist/logout'" type="button">
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mt-8 flex justify-center">
+    <div>
+      <h1 class="inline font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-blue-600 to-red-600">
+        Create Task
+      </h1>
+      <form class="mt-6" method="POST" action="{% url 'todolist:create' %}">
+        {% csrf_token %}
+        <div>
+          <table>
+            <tr>
+              <td>Title </td>
+              <td class="pl-6">
+                <input type="text" name="title" placeholder="Title" class="form-control w-full">
+              </td>
+            </tr>
+                    
+            <tr class="pt-4">
+              <td>Description </td>
+              <td class="pl-6">
+                <textarea name="description" placeholder="Description" class="form-control"></textarea>
+              </td>
+            </tr>
+        
+            <tr class="pt-4">
+              <td>Date </td>
+              <td class="pl-6">
+                <input type="date" name="date" placeholder="Date" class="form-control w-full">
+              </td>
+            </tr>
+          </table>
+        
+          <button class="submit mt-6 px-4 py-2 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-md">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 {% endblock content %}

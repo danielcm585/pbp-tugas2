@@ -8,27 +8,23 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from todolist.models import Task, TaskForm
+from todolist.models import Task
+from todolist.forms import TaskForm
 
 @login_required(login_url='/todolist/login')
 def home(request):
     if (request.user.is_authenticated):
-        tasks = Task.objects.filter(user=request.user)
-        for task in tasks:
-            print(task.title, task.done)
+        tasks = Task.objects.filter(user=request.user).order_by('done', 'date')
         context = {
             'name': 'Daniel Christian Mandolang',
             'npm': '2106630006',
-            'tasks': tasks
+            'tasks': tasks,
+            'num_of_tasks': len(tasks),
         }
         return render(request, 'todolist.html', context)
 
 @login_required(login_url='/todolist/login')
 def create_task(request):
-    form = TaskForm(request.POST)
-    context = {
-        'form': form
-    }
     return render(request, 'create_task.html')
 
 @login_required(login_url='/todolist/login')
@@ -81,7 +77,7 @@ def register_user(request):
             messages.success(request, 'Akun telah berhasil dibuat!')
             return redirect('todolist:login')
     
-    context = {'form':form}
+    context = { 'form':form }
     return render(request, 'register.html', context)
 
 def logout_user(request):
