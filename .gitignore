@@ -78,3 +78,5 @@ $RECYCLE.BIN/
 *.lnk
 
 TODO.md
+
+\node_modules/
