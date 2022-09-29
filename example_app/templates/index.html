@@ -2,10 +2,36 @@
 {% load static %}
 
 {% block meta %}
-<title>Hello, world!</title>
+
+<title>Daniel Christian M.</title>
+
 {% endblock meta %}
 
 {% block content %}
-  <h1>Hello, world!</h1>
-  <h3>This is example app for Django template</h3>
+
+<div class="flex justify-center">
+  <div>
+    <div class="mt-20">
+      <h1 class="inline text-3xl font-extrabold text-transparent bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text">
+        Daniel Christian Mandolang
+      </h1>
+    </div>
+    <div>
+      <h1 class="inline text-3xl font-extrabold text-transparent bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text">
+        2106630006
+      </h1>
+    </div>
+    <button class="mt-6 px-6 py-4 rounded-md w-full bg-gradient-to-r from-blue-600 to-red-600 transition ease-in-out hover:scale-110" onclick="location.href='/todolist'">
+      <h1 class="text-white text-2xl font-bold">
+        Todolist
+      </h1>
+    </button>
+    <button class="mt-4 px-6 py-4 rounded-md w-full bg-gradient-to-r from-blue-600 to-red-600 transition ease-in-out hover:scale-110" onclick="location.href='/katalog'">
+      <h1 class="text-white text-2xl font-bold">
+        Katalog
+      </h1>
+    </button>
+  </div>
+</div>
+
 {% endblock content %}

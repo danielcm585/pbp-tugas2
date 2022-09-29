@@ -1,5 +1,4 @@
 import datetime
-from re import T
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
