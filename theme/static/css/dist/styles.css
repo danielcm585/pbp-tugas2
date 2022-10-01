@@ -814,20 +814,6 @@ select {
   margin-bottom: 1.5rem;
 }
 
-.mx-80 {
-  margin-left: 20rem;
-  margin-right: 20rem;
-}
-
-.mx-96 {
-  margin-left: 24rem;
-  margin-right: 24rem;
-}
-
-.mt-60 {
-  margin-top: 15rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
 }
@@ -844,16 +830,24 @@ select {
   margin-right: 0.5rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-60 {
+  margin-top: 15rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-6 {
-  margin-top: 1.5rem;
 }
 
 .mt-2 {
@@ -870,10 +864,6 @@ select {
 
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.mt-20 {
-  margin-top: 5rem;
 }
 
 .block {
@@ -1074,14 +1064,14 @@ select {
   padding-right: 14rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pr-10 {
@@ -1109,6 +1099,16 @@ select {
   line-height: 1;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -1122,16 +1122,6 @@ select {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 
 .font-extrabold {
@@ -1246,6 +1236,13 @@ select {
   .sm\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:bg-green-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(34 197 94 / var(--tw-bg-opacity));
   }
 }
 
