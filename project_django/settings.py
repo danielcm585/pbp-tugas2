@@ -158,4 +158,4 @@ INTERNAL_IPS = [
 
 TAILWIND_CSS_PATH = 'css/dist/styles.css'
 
-NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
+# NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
