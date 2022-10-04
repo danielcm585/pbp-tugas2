@@ -11,6 +11,7 @@ Masing-masing penempatan memiliki kelebihan dan kekurangan masing-masing. Inline
 - `<b>...</b>` merupakan tags untuk menebalkan font (bold).
 - `<i>...</i>` merupakan tags untuk memiringkan font (italic).
 - `<u>...</u>` merupakan tags untuk menggarisbawah font (underline).
+- `<nav>...</nav>` merupakan tags yang digunakan untuk membuat navigation bar.
 - `<div>...</div>` merupakan tags untuk mengemas beberapa elemen menjadi sebuah section atau division.
 - `<input>` merupakan tags untuk membuat sebuah field yang dapat menerima input user.
 - `<form>...</form>` merupakan tags untuk mengemas beberapa input menjadi sebuah form.
