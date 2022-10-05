@@ -45,7 +45,7 @@
         {{ num_of_tasks }} tasks
       </h1>
       {% for task in tasks %}
-        <div class="mt-2 py-4 px-6 bg-gray-100 items-center justify-between rounded-md flex transition ease-in-out hover:scale-105 hover:bg-gray-200">
+        <div data-aos="flip-up" class="mt-2 py-4 px-6 bg-gray-100 items-center justify-between rounded-md flex transition ease-in-out hover:scale-105 hover:bg-gray-200">
           <div class="flex items-center">
             <div class="transition ease-in-out hover:scale-110">
               {% if task.done %}
