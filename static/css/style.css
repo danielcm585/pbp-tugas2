@@ -2,6 +2,16 @@ body {
   /* padding: 0 1rem 1rem 1rem; */
 }
 
+[data-aos] {
+  pointer-events: none;
+}
+.aos-animate {
+  pointer-events: auto;
+}
+.aos-init[data-aos][data-aos].aos-animate {
+  transform: unset;
+}
+
 .title-container {
   display: inline-block;
 }

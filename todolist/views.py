@@ -23,6 +23,11 @@ def home(request):
         return render(request, 'todolist.html', context)
 
 @login_required(login_url='/todolist/login')
+def get_json(request):
+    tasks = Task.objects.filter(user=request.user).order_by('done', 'date')
+    return HttpResponse(serializers.serialize('json',tasks), content_type='application/json')
+
+@login_required(login_url='/todolist/login')
 def create_task(request):
     return render(request, 'create_task.html')
 
