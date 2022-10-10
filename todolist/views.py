@@ -1,6 +1,6 @@
 import datetime
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from django.urls import reverse
 from django.contrib import messages
@@ -37,12 +37,17 @@ def create(request):
         user = request.user
         form = TaskForm(request.POST or None)
         if (form.is_valid()):
-            title = form.cleaned_data['title']
-            description = form.cleaned_data['description']
-            date = form.cleaned_data['date']
-            task = Task(title=title, description=description, date=date, user=user)
-            task.save()
-            return HttpResponseRedirect(reverse('todolist:home'))
+            title = form.cleaned_data.get('title')
+            description = form.cleaned_data.get('description')
+            date = form.cleaned_data.get('date')
+            task = Task.objects.create(title=title, description=description, date=date, user=user)
+            return JsonResponse({
+                'pk': task.pk,
+                'done': task.done,
+                'title': title,
+                'description': description,
+                'date': date,
+            })
 
 @login_required(login_url='/todolist/login')
 def mark_done(request, id):
