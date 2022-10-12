@@ -24,7 +24,7 @@ def home(request):
 
 @login_required(login_url='/todolist/login')
 def get_json(request):
-    tasks = Task.objects.filter(user=request.user).order_by('done', 'date')
+    tasks = Task.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize('json',tasks), content_type='application/json')
 
 @login_required(login_url='/todolist/login')

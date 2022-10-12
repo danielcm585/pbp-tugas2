@@ -8,6 +8,7 @@ urlpatterns = [
   path('json/', get_json, name='get_json'),
   path('create-task/', create_task, name='create_task'),
   path('create/', create, name='create'),
+  path('add/', create, name='create'),
   path('mark-done/<int:id>', mark_done, name='mark_done'),
   path('delete/<int:id>', delete, name='delete'),
   path('login/', login_user, name='login'),

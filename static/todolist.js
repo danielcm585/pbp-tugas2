@@ -7,7 +7,7 @@ $(document).ready(() => {
     `)
     tasks.forEach((task) => {
       $('#tasks-section').append(`
-        <div data-aos="flip-up" class="mt-2 py-4 px-6 bg-gray-100 items-center justify-between rounded-md flex transition ease-in-out hover:scale-105 hover:bg-gray-200">
+        <div id="task-${task.pk}" data-aos="flip-up" class="mt-2 py-4 px-6 bg-gray-100 items-center justify-between rounded-md flex transition ease-in-out hover:scale-105 hover:bg-gray-200">
           <div class="flex items-center">
             <div class="transition ease-in-out hover:scale-110">
               <a href="/todolist/mark-done/${task.pk}">
@@ -29,14 +29,22 @@ $(document).ready(() => {
               </p>
             </div>
           </div>
-          <form action="/todolist/delete/${task.pk}">
-            <button class="text-red-600 p-2 rounded-md transition ease-in-out hover:scale-110" type="submit">
-              Delete
-            </button>
-          </form>
+          <button id="delete-task-${task.pk}" class="text-red-600 p-2 rounded-md transition ease-in-out hover:scale-110">
+            Delete
+          </button>
         </div>
       `)
+      $(`#delete-task-${task.pk}`).click(() => {
+        console.log("DELETE")
+        $.ajax({
+          url: `/todolist/delete/${task.pk}`,
+          type: 'GET',
+          credentials: 'include',
+          success: () => $(`#task-${task.pk}`).remove()
+        })
+      })
     })
+    
   })
 
   $('#drawer-open-button').click(() => {
@@ -60,17 +68,16 @@ $(document).ready(() => {
   })
 
   $('#new-task-form').submit((e) => {
-    console.log('HERE')
     e.preventDefault()
     $.ajax({
-      url: '/todolist/create/',
+      url: '/todolist/add/',
       type: 'POST',
       credentials: 'include',
       dataType: 'json',
       data: $('#new-task-form').serialize(),
       success: (resp) => {
         $('#tasks-section').append(`
-          <div data-aos="flip-up" class="mt-2 py-4 px-6 bg-gray-100 items-center justify-between rounded-md flex transition ease-in-out hover:scale-105 hover:bg-gray-200">
+          <div id="task-${resp.pk}" data-aos="flip-up" class="mt-2 py-4 px-6 bg-gray-100 items-center justify-between rounded-md flex transition ease-in-out hover:scale-105 hover:bg-gray-200">
             <div class="flex items-center">
               <div class="transition ease-in-out hover:scale-110">
                 <a href="/todolist/mark-done/${resp.pk}">
@@ -92,15 +99,22 @@ $(document).ready(() => {
                 </p>
               </div>
             </div>
-            <form action="/todolist/delete/${resp.pk}">
-              <button class="text-red-600 p-2 rounded-md transition ease-in-out hover:scale-110" type="submit">
-                Delete
-              </button>
-            </form>
+            <button id="delete-task-${resp.pk}" class="text-red-600 p-2 rounded-md transition ease-in-out hover:scale-110">
+              Delete
+            </button>
           </div>
         `)
-      },
-      error: () => alert('WOY')
+        $(`#delete-task-${task.pk}`).click(() => {
+          $.ajax({
+            url: `/todolist/delete-${task.pk}`,
+            type: 'DELETE',
+            credentials: 'include',
+            dataType: 'json',
+            success: () => $(`#task-${task.pk}`).remove()
+          })
+        })
+        $('#new-task-modal').addClass('hidden')
+      }
     })
   })
 })

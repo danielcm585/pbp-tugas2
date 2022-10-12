@@ -1401,15 +1401,6 @@ select {
     width: 33.333333%;
   }
 
-  .lg\:w-1\/4 {
-    width: 25%;
-  }
-
-  .lg\:bg-black {
-    --tw-bg-opacity: 1;
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-  }
-
   .lg\:px-28 {
     padding-left: 7rem;
     padding-right: 7rem;
